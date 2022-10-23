@@ -94,3 +94,30 @@ span{
     transform: translateX(-50%);
     background-color: goldenrod;
 }
+
+
+/*archive*/
+#archiveModal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    top:0;
+    left: 0;
+}
+#archiveModalContent{
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    top:50%;
+    left:50%;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.notVisible{
+    display: none;
+}
