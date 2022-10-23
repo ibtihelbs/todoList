@@ -1,4 +1,6 @@
 const tasksWrapper = document.querySelector('.tasksWrapper');
+const archiveModalContent = document.querySelector('#archiveModalContent');
+console.log(archiveModalContent)
 class _Task{
      constructor(task,completed,important,Id){
        this.id = Id;
@@ -11,10 +13,14 @@ class _Task{
 class UI {
    static displayTasks (){
       const tasksList = StoreTask.showTasks();
-         tasksList ? tasksList.forEach((e)=>{UI.addTask(e)}) : tasksWrapper.innerHTML = "<p>No task </p>";
+         tasksList ? tasksList.forEach((e)=>{UI.addTask(e,tasksWrapper)}) : tasksWrapper.innerHTML = "<p>No task </p>";
    }
-   static addTask (e){
-      
+   static displayTasksArchive(){
+      const tasksList = ArchiveTask.showTasks();
+      console.log(tasksList)
+      tasksList ? tasksList.forEach((e)=>{UI.addTask(e,archiveModalContent)}) : tasksWrapper.innerHTML = "<p>No task </p>";
+   }
+   static addTask (e,ui){
          const singleTask = document.createElement('div');
          singleTask.setAttribute('class', 'singleTask');
          const htmlUi = `
@@ -35,7 +41,7 @@ class UI {
       </div>
          `
          singleTask.innerHTML= htmlUi;
-         tasksWrapper.appendChild(singleTask);
+         ui.appendChild(singleTask);
    }
    static clear (){
        document.querySelector('#task').value = '';
@@ -52,9 +58,9 @@ class ArchiveTask{
       }
       return Archive;
    }
-   static addTaskTostore(book){
-      const Archive = StoreTask.showTasks();
-      Books.push(Archive)
+   static addTaskTostore(archive){
+      const Archive = ArchiveTask.showTasks();
+      Archive.push(archive)
       localStorage.setItem('Archive', JSON.stringify(Archive));
    }
 }
@@ -76,7 +82,6 @@ class StoreTask{
    static removeTaskTostore(Id) {
       const Books = StoreTask.showTasks();
       const updateBooks = Books.filter((del)=> del.id !== parseInt(Id))
-      console.log(updateBooks,Id)
       localStorage.setItem('Books', JSON.stringify(updateBooks));
    }
    static completedTask(Id){
@@ -86,6 +91,11 @@ class StoreTask{
       target.completed = true;
       console.log(Id, Books)
       localStorage.setItem('Books', JSON.stringify(Books));
+   }
+   static TaskToArchive(Id){
+      const Books = StoreTask.showTasks();
+      const target = Books.find((el)=> el.id == Id)
+      return target;
    }
 }
 /**display tasks */
@@ -117,13 +127,18 @@ document.getElementById("addTaskForm").addEventListener('submit', (e)=>{
          const Id = done.getAttribute('data-id');
          StoreTask.completedTask(Id);
          window.location.reload();
-      }
-     
-    
+      }else if(archive){
+         const Id = archive.getAttribute('data-id');
+         const addToAr = StoreTask.TaskToArchive(Id)
+         ArchiveTask.addTaskTostore(addToAr)
+      }else{
+         return;
+      } 
    })
 
    document.getElementById('GoToArchive').addEventListener('click',(e)=>{
     e.preventDefault();
+     UI.displayTasksArchive;
      document.getElementById('archiveModal').classList.toggle('notVisible');
-
+     
    })
