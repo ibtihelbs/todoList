@@ -13,7 +13,9 @@ ul{
 }
 button{
     border: none;
+    cursor: pointer;
 }
+
 button:hover{
     opacity: 0.5;
 }
@@ -25,6 +27,7 @@ nav ul{
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    cursor: pointer;
 }
 /*state*/
 #important::before{
@@ -46,26 +49,28 @@ main{
    gap:5px;
    align-items: center;
 }
-span{
-    padding: 1rem 2rem;
-}
+
 /*buttons**/
 .tasksWrapper{
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
-.singleTask span{
+.singleTask span, #task{
     border-radius: 5px;
     width: 600px;
+    padding: 1rem 2rem;
 }
 .action{
     height: 100%;
     border-radius: 5px;
+    /* display: flex; */
+    /* align-items: stretch; */
+    padding: .1rem .2rem;
 }
 .action img{
-    width: 80%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
 }
 .done{
     background-color: limegreen;
@@ -83,7 +88,7 @@ span{
     border: solid 2px red;
 }
 .regular{
-    border: solid 2px cyan;
+    border: solid 2px deepskyblue;
 } 
 
 /*credit*/
@@ -118,6 +123,27 @@ span{
     align-items: center;
     justify-content: center;
 }
+#archiveModalImg{
+    background-color: red;
+    position: absolute;
+    top: -5%;
+    right: -10%;
+}
 .notVisible{
     display: none;
+}
+
+/*form*/
+form {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ gap: 5px;
+}
+form button{
+ padding: .5rem 1rem;
+ color: white;
+ background-color:deepskyblue;
+ border-radius: 5px;
+ /* height: 100%; */
 }

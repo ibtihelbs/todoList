@@ -17,6 +17,13 @@
         </ul>
     </nav>
     <main>
+    
+            <form id="addTaskForm">
+              <input type="text" name="task" id="task" placeholder="Add a task here .....">
+              <input type="checkbox" name="important" id="isImportant">
+              <button type="submit">send</button>
+            </form> 
+         
         <div class="tasksWrapper">
             <ul class="state">
                 <li id="important">important !</li>
@@ -24,17 +31,11 @@
             </ul>
          </div>
     </main>
-    <div class="modal">
-       <form id="addTaskForm">
-         <input type="text" name="task" id="task" placeholder="Add a task here .....">
-         <input type="checkbox" name="important" id="isImportant">
-         <button type="submit">send</button>
-       </form> 
-    </div>
+    
     <!--class="notVisible"-->
     <div id="archiveModal" class="notVisible">
         <div id="archiveModalContent">
-           empty
+            <img id="archiveModalImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABv0lEQVRoge2YPU7DQBBGZ6gRLeIERBGX4KeDiLPAGQBRUQXOgQSUBA5AGSFxARRT4vSPIo4U1kuw9y8G7auilWfzvWy8O7ZIJpNxAjgGnoEpq2cKPAGDthKXKw6+jHNbZrWthIjcuq1jMgaqer84sGa56CRRGB9OzQHbipQisp4kjjulqm4sDthESJfHHVX9lt321/qTZJGukUW6RgiRGxEpPOqLao6wtGwXhlVNH5g4tBsToF/NMWxTGFqkAHaqum3g3bG217I2uIgZqKmMlwTEETGD/SbjLQHxRMyAP8kEkYC4ImZQUyaYBMQXMQPPZYJKQF0kVvdbiMieqr5Sba8Ln0cisun7BWb3G7ON/xCRfVUdV/P2ZCaxFWLyVbbxUZ9zYokUIrKrqmNmp35fVd9E5ED82pnm+N6E2G9snw7ASmyRZbtTUJmYIk222GAysUTanBNBZGKIuBx23jKhRXxObC+Z0CL/5sEK4Bo3iTmTao5WmLnzm8aukUW6RhbpGjaRafIU7fk0B2wiLwmC+FLLaBO5ShDEl1rGmoiq3onIRZI4bpyp6kPjq4EjYASUHu1HKErgETiM+ANlMv+aL1wTNja2EnlpAAAAAElFTkSuQmCC">
         </div>
     </div>
     <a href="https://www.flaticon.com/free-icons/archive" title="archive icons" id="credit">Archive icons created by lakonicon - Flaticon</a>
