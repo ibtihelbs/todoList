@@ -140,6 +140,8 @@ document.getElementById("addTaskForm").addEventListener('submit', (e)=>{
          const Id = archive.getAttribute('data-id');
          const addToAr = StoreTask.TaskToArchive(Id)
          ArchiveTask.addTaskTostore(addToAr)
+         StoreTask.removeTaskTostore(Id);
+         window.location.reload();
       }else{
          return;
       } 
