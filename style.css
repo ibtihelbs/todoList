@@ -48,6 +48,8 @@ main{
    flex-direction: row;
    gap:5px;
    align-items: center;
+   flex-grow: 1;
+   width: 100%;
 }
 
 /*buttons**/
@@ -58,8 +60,9 @@ main{
 }
 .singleTask span, #task{
     border-radius: 5px;
-    width: 600px;
+    /* width: 600px; */
     padding: 1rem 2rem;
+    width: 100%;
 }
 .action{
     height: 100%;
@@ -67,7 +70,7 @@ main{
     /* display: flex; */
     /* align-items: stretch; */
     padding: .1rem .2rem;
-    width: 50px;
+    width: 40px;
 }
 .action img{
     width: 100%;
@@ -146,14 +149,14 @@ form button{
  color: white;
  background-color:deepskyblue;
  border-radius: 5px;
- /* height: 100%; */
+
 }
 @media (max-width : 700px){
     body{
     padding: .5rem 1.5rem;
     }
     main{
-     width:100%;
+     width: 90%;
     }
     nav{
      flex-direction:column;
@@ -165,6 +168,7 @@ form button{
      justify-content:space-between;
     }
     #task {
-        width:90%;
+        width:80%;
     }
+   
    }

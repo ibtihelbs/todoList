@@ -151,7 +151,7 @@ document.getElementById("addTaskForm").addEventListener('submit', (e)=>{
      el.preventDefault();
      document.getElementById('archiveModal').classList.toggle('notVisible');
      const checkArchive = JSON.parse(localStorage.getItem('Archive')).length;
-     if(checkArchive == 0){
+     if(checkArchive == 0 && !archiveModalContent.innerHTML.includes('no archived')){
        //archiveModalContent.innerHTML= "no archived tasks";
        archiveModalContent.insertAdjacentHTML("beforeend", "<h3>no archived tasks</h3>"); 
        console.log('no archived tasks',JSON.parse(localStorage.getItem('Archive')))
